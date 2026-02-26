@@ -1,3 +1,5 @@
+console.log("INDEX JS LOADED");
+
 import { db } from "./firebase.js";
 
 import {
@@ -84,6 +86,9 @@ async function init() {
    await startMonitoring();
 }
 
-connectButton.addEventListener("click", init)
+connectButton.addEventListener("click", () => {
+  console.log("BUTTON CLICKED");
+  init();
+});
 startButton.addEventListener("click", startMonitoring)
 stopButton.addEventListener("click", stopMonitoring)
