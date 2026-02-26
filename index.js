@@ -16,12 +16,8 @@ const connectUI = document.querySelector(".connect-ui");
 const startButton = document.querySelector(".start");
 const heartUI = document.querySelector(".heart");
 
-
-
-
 let device;
 let heartRateChar;
-
 
 function parseHeartRateData(value){
    const is16Bits = value.getUint8(0) & 0x1;
@@ -29,10 +25,9 @@ function parseHeartRateData(value){
    return value.getUint8(1);
 }
 
-
 async function handleRateChange(event) {
-  const bpm = parseHeartRate(event.target.value);
-  bpmTxt.textContent = bpm;
+  const bpm = parseHeartRateData(event.target.value);
+  bpmText.textContent = bpm;
   console.log("Heart Rate:", bpm);
   await addDoc(
     collection(db, "heartRates"),
@@ -44,21 +39,15 @@ async function handleRateChange(event) {
   );
 }
 
-
-
-
 async function connectDevice() {
    if (device.gatt.connected) return;
-
 
    const server = await device.gatt.connect();
    const service = await server.getPrimaryService('heart_rate');
 
-
    heartRateChar = await service.getCharacteristic('heart_rate_measurement');
    heartRateChar.addEventListener('characteristicvaluechanged', handleRateChange);
 }
-
 
 async function requestDevice() {
    device = await navigator.bluetooth.requestDevice({
@@ -66,17 +55,14 @@ async function requestDevice() {
        optionalServices: ['heart_rate'],
    });
 
-
    device.addEventListener('gattserverdisconnected', connectDevice);
 }
-
 
 async function startMonitoring(){
    await heartRateChar.startNotifications();
    beatAudio.play();
    heartUI.classList.remove('pause-animation');
 }
-
 
 async function stopMonitoring(){
    await heartRateChar.stopNotifications();
@@ -87,20 +73,16 @@ async function stopMonitoring(){
 
 async function init() {
    if (!navigator.bluetooth) return errorText.classList.remove("hide");
-
-
+   
    await requestDevice();
    connectButton.textContent = "connecting..."
-
-
+   
    await connectDevice();
    connectUI.classList.add('hide');
    appUI.classList.remove('hide');
-
-
+   
    await startMonitoring();
 }
-
 
 connectButton.addEventListener("click", init)
 startButton.addEventListener("click", startMonitoring)

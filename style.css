@@ -4,17 +4,14 @@
    sans-serif;
 }
 
-
 * {
    margin: 0;
    padding: 0;
 }
 
-
 .hide {
    display: none;
 }
-
 
 .pause-animation {
  animation-play-state: paused !important;
@@ -22,9 +19,6 @@
  -moz-animation-play-state: paused !important;
  -webkit-animation-play-state: paused !important;
 }
-
-
-
 
 body{
    top: 50%;
@@ -35,17 +29,14 @@ body{
 
 }
 
-
 .heart {
    user-select: none;
    animation: heartbeat var(--animation-speed) infinite;
 }
 
-
 .heart img {
    width: 250px;
 }
-
 
 .bpm{
    top: 50%;
@@ -55,7 +46,6 @@ body{
    position: absolute;
    transform: translate(-50%, -50%)
 }
-
 
 button {
  color: #fff;
@@ -69,11 +59,9 @@ button {
  border-radius: 1vh;
 }
 
-
 .error {
  margin-top: 10px;
 }
-
 
 @keyframes heartbeat {
  0% {
