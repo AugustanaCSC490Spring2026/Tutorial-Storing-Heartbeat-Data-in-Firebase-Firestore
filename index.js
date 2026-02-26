@@ -31,11 +31,20 @@ async function handleRateChange(event) {
   const bpm = parseHeartRateData(event.target.value);
   bpmText.textContent = bpm;
   console.log("Heart Rate:", bpm);
+  const now = new Date();
+  const readableTimestamp = now.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
   await addDoc(
-    collection(db, "heartRates"),
+    collection(db, "User Heart Rate"),
     {
       bpm: bpm,
-      timestamp: Date.now(),
+      timestamp: readableTimestamp,
       deviceId: device.name || "unknown-device"
     }
   );
