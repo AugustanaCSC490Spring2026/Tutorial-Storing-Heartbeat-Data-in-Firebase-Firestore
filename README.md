@@ -35,7 +35,7 @@ const firebaseConfig = {
 ```
 
 Heart rate readings from your bluetooth device are stored automatically during readings in a Firestore Collection titled:
-## User Heart Rate
+**User Heart Rate**
 
 ## Data format in Firestore
 Firestore formats the data received from the bluetooth device as so:
