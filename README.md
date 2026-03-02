@@ -26,9 +26,13 @@ Then visit [http://localhost:3000/](http://localhost:3000/) in a [supported brow
 ## Firebase Setup
 Create a project in Firebase and enable a Firestore Database.
 
-Add your Firestore Database inside firebase.js
+Add your Firestore Database inside firebase.js. The file should be formatted with the firebaseConfig constant updated:
 
 ```
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+
 const firebaseConfig = { 
     apiKey: "...", 
     authDomain: "...", 
@@ -37,6 +41,9 @@ const firebaseConfig = {
     messagingSenderId: "...",
     appId: "..." 
 };
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 ```
 
 Heart rate readings from your bluetooth device are stored automatically during readings in a Firestore Collection titled:
