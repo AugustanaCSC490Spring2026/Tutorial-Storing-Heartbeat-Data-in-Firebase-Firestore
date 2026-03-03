@@ -28,7 +28,7 @@ Then visit [http://localhost:3000/](http://localhost:3000/) in a [supported brow
 ## Firebase Setup
 Create a project in Firebase and enable a Firestore Database.
 
-Add your Firestore Database inside firebase.js. The file should be formatted with the firebaseConfig constant updated:
+Create a file named firebase.js and add your Firestore Database. The file should be formatted with the firebaseConfig constant updated:
 
 ```
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -73,3 +73,4 @@ Replace "User Heart Rate" with whatever you want the new dataset to be titled.
 
 
 Congratulations! You have successfully set up your heartbeat sensor to automatically store heart rate data in Firebase Firestore!
+
