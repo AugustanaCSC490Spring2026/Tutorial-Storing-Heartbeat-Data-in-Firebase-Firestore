@@ -1,6 +1,8 @@
 # Tutorial-Storing-Heart-Rate-Data-in-Firebase-Firestore
 A web client for Bluetooth heart monitoring devices that displays live BPM data and stores readings in Firebase Firestore using the Web Bluetooth API.
 
+Demo Video: https://www.youtube.com/watch?v=8YtM7oh3YHI
+
 # **DISCLAIMER:**
 
 This GitHub repository has built off of an existing GitHub repository created by the user: **[megaconfidence](https://github.com/megaconfidence)**
@@ -73,4 +75,5 @@ Replace "User Heart Rate" with whatever you want the new dataset to be titled.
 
 
 Congratulations! You have successfully set up your heartbeat sensor to automatically store heart rate data in Firebase Firestore!
+
 
