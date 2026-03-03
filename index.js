@@ -92,7 +92,6 @@ async function init() {
    connectUI.classList.add('hide');
    appUI.classList.remove('hide');
    
-   await startMonitoring();
 }
 
 connectButton.addEventListener("click", () => {
